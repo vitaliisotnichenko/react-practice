@@ -118,7 +118,11 @@ module.exports = function (webpackEnv) {
       },
       {
         loader: require.resolve('css-loader'),
-        options: cssOptions,
+        options: {
+          importLoaders: 1,
+          sourceMap: shouldUseSourceMap,
+          modules: true
+        },
       },
       {
         // Options for PostCSS as we reference these options twice
